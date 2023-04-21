@@ -1,0 +1,13 @@
+const accessKey = "YOUR_ACCESS_KEY";
+const baseCurrency = "USD";
+const targetCurrency = "EUR";
+const amount = 100;
+
+fetch(`http://data.fixer.io/api/convert?access_key=${accessKey}&from=${baseCurrency}&to=${targetCurrency}&amount=${amount}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(`${amount} ${baseCurrency} is equal to ${data.result} ${targetCurrency}.`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
